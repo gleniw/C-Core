@@ -78,6 +78,10 @@ namespace TestProject1
             Assert.That(Program.Greeting(timeOfDay), Is.EqualTo("Good Morning"));
         }
 
+        //[Ignore "Suppose to fail"]
+        //[Category("Fail Test")]
+        //*Example of if you want to ignore a test */
+
         [TestCase(12)]
         [TestCase(18)]
         [TestCase(15)]
@@ -98,12 +102,25 @@ namespace TestProject1
 
         [TestCase(-5)]
         [TestCase(123)]
-        [TestCase(1*1)]
+        [TestCase(1 * 1)]
         [TestCase(9000000)]
         public void GivenATime_ReturnsInvalidEntry(int timeOfDay)
         {
 
             Assert.That(Program.Greeting(timeOfDay), Is.EqualTo("Invalid Entry"));
+        }
+
+
+        //NOT BEST PRACTICE
+
+        [TestCase(11, "Good Morning")]
+        [TestCase(12, "Good Afternoon")]
+        [TestCase(18, "Good Evening")]
+
+
+        public void GivenANumber(int time, string expected)
+        {
+            Assert.That(Program.Greeting(time), Is.EqualTo(expected));
         }
 
     }
