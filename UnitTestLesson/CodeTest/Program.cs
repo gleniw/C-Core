@@ -22,7 +22,7 @@ namespace CodeTest
         public static string Greeting(int timeOfDay)
         {
             string greeting;
-            if (timeOfDay >= 5 && timeOfDay <= 12)
+            if (timeOfDay >= 5 && timeOfDay < 12)
             {
                 // Console.WriteLine("Good Morning");
                 greeting = "Good Morning";
