@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CodeTest
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,7 +19,7 @@ namespace CodeTest
         }
 
         // private static void Greeting(int timeOfDay)
-        private static string Greeting(int timeOfDay)
+        public static string Greeting(int timeOfDay)
         {
             string greeting;
             if (timeOfDay >= 5 && timeOfDay <= 12)
