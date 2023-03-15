@@ -29,7 +29,7 @@ namespace ControlFlowAppV1
             }
             return highest;
         }
-        //Not working
+
         internal static int HighestForLoop(List<int> nums)
         {
             int highest = 0;
@@ -38,7 +38,7 @@ namespace ControlFlowAppV1
             {
                 if (nums[i] > highest)
                 {
-                    highest = i;
+                    highest = nums[i];
                 }
             }
 
@@ -48,14 +48,17 @@ namespace ControlFlowAppV1
         {
             int highest = 0;
             int i = 0;
-            while (i > 0)
+            while (i < nums.Count)
             {
-                if (i > highest) highest = i;
+                if (nums[i] > highest)
+                {
+                    highest = nums[i];
+                }
+                i++;
             }
             return highest;
         }
 
-        //Not working
         internal static int HighestDoWhileLoop(List<int> nums)
         {
             int highest = 0;

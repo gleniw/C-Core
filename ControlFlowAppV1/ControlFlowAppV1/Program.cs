@@ -9,9 +9,13 @@ namespace ControlFlowAppV1
             //LIST TO FIND NUMBERS IN LOOP TYPES
 
             List<int> nums = new List<int> { 10,6,22,-17,5};
+            //CORRECT
             Console.WriteLine("Highest foreach loop " + LoopTypes.HighestForEachLoop(nums));
+            //CORRECT
             Console.WriteLine("Highest for loop " + LoopTypes.HighestForLoop(nums));
+            //CORRECT
             Console.WriteLine("Highest while loop " + LoopTypes.HighestWhileLoop(nums));
+            //CORRECT
             Console.WriteLine("Highest do while loop " + LoopTypes.HighestDoWhileLoop(nums));
             
             Console.WriteLine();
