@@ -67,13 +67,53 @@ namespace Op_CtrlFlow
 
         public static string Grade(int mark)
         {
-            var grade = "";
-            return grade;
+            if (mark >= 100)
+            {
+                return "Pass with Distinction";
+            }
+            else if (mark >= 60 && mark <= 74)
+            {
+                return "Pass with Merit";
+            }
+            else if (mark >= 40 && mark <= 59)
+            {
+                return "Pass";
+            }
+            else if (mark >= 0 && mark <= 39)
+            {
+                return "Fail";
+            }
+            else 
+            {
+                return "Invalid Entry";
+            }
         }
 
         public static int GetScottishMaxWeddingNumbers(int covidLevel)
         {
-            return 0;
+            
+            switch (covidLevel)
+            {
+                case <= 20:
+                    covidLevel =  4;
+                    break;
+                case <= 30:
+                    covidLevel = 3;
+                    break;
+                case <= 50:
+                    covidLevel = 2;
+                    break;
+                case <= 100:
+                    covidLevel = 1;
+                    break;
+                case <= 200:
+                    covidLevel = 0;
+                    break;
+                default:
+                    covidLevel = 10;
+                    break;
+            }
+            return covidLevel;
         }
     }
 }

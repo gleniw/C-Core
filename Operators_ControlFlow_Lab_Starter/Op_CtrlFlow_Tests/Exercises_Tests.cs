@@ -81,5 +81,125 @@ namespace Op_CtrlFlow_Tests
             var result = Exercises.TicketType(age);
             Assert.That(result, Is.EqualTo(expected));
         }
+
+
+        //[TestCase(4, 4)]
+        //[TestCase(3,3)]
+        //[TestCase(2,2)]
+        //[TestCase(1,1)]
+        //[TestCase(0,0)]
+        //public void TestForNoOfPeopleToShowWarningLevel(int covidLevel, int expectedResult)
+        //{
+
+        //    Assert.That(Exercises.GetScottishMaxWeddingNumbers(covidLevel), Is.EqualTo(expectedResult));
+        //}
+
+        [Test]
+        public void TestForNoOfPeopleEqualto20ToShowWarningLevel4()
+        {
+            // Arrange - Pre - Condition
+            var noOfAttendees = 20;
+            var expectedCovidLevel = 4;
+            // Act - When
+            var result = Exercises.GetScottishMaxWeddingNumbers(noOfAttendees);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedCovidLevel));
+        }
+
+        [Test]
+        public void TestForNoOfPeopleEqualto30ToShowWarningLevel3()
+        {
+            // Arrange - Pre - Condition
+            var noOfAttendees = 30;
+            var expectedCovidLevel = 3;
+            // Act - When
+            var result = Exercises.GetScottishMaxWeddingNumbers(noOfAttendees);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedCovidLevel));
+        }
+
+        [Test]
+        public void TestForNoOfPeopleEqualto50ToShowWarningLevel2()
+        {
+            // Arrange - Pre - Condition
+            var noOfAttendees = 50;
+            var expectedCovidLevel = 2;
+            // Act - When
+            var result = Exercises.GetScottishMaxWeddingNumbers(noOfAttendees);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedCovidLevel));
+        }
+
+        [Test]
+        public void TestForNoOfPeopleEqualto100ToShowWarningLevel1()
+        {
+            // Arrange - Pre - Condition
+            var noOfAttendees = 100;
+            var expectedCovidLevel = 1;
+            // Act - When
+            var result = Exercises.GetScottishMaxWeddingNumbers(noOfAttendees);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedCovidLevel));
+        }
+
+        [Test]
+        public void TestForNoOfPeopleEqualto200ToShowWarningLevel0()
+        {
+            // Arrange - Pre - Condition
+            var noOfAttendees = 100;
+            var expectedCovidLevel = 1;
+            // Act - When
+            var result = Exercises.GetScottishMaxWeddingNumbers(noOfAttendees);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedCovidLevel));
+        }
+
+        [Test]
+        public void TestIfStudentGrade100IsDistinction()
+        {
+            // Arrange - Pre - Condition
+            var studentResult = 100;
+            var expectedGrade = "Pass with Distinction";
+            // Act - When
+            var result = Exercises.Grade(studentResult);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedGrade));
+        }
+
+        [Test]
+        public void TestIfStudentGrade74IsMerit()
+        {
+            // Arrange - Pre - Condition
+            var studentResult = 74;
+            var expectedGrade = "Pass with Merit";
+            // Act - When
+            var result = Exercises.Grade(studentResult);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedGrade));
+        }
+
+        [Test]
+        public void TestIfStudentGrade59IsPass()
+        {
+            // Arrange - Pre - Condition
+            var studentResult = 59;
+            var expectedGrade = "Pass";
+            // Act - When
+            var result = Exercises.Grade(studentResult);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedGrade));
+        }
+
+        [Test]
+        public void TestIfStudentGrade39IsAFail()
+        {
+            // Arrange - Pre - Condition
+            var studentResult = 39;
+            var expectedGrade = "Fail";
+            // Act - When
+            var result = Exercises.Grade(studentResult);
+            // Assert  - Then
+            Assert.That(result, Is.EqualTo(expectedGrade));
+        }
     }
 }
