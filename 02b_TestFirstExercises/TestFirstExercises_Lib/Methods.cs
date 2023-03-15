@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TestFirstExercises
 {
@@ -42,22 +43,42 @@ namespace TestFirstExercises
         // that are divisible by either 2 or 5
         public static int SumEvenFive(int max)
         {
-            return -1;
+            int sum = 0;
+            for (int i =1; i < max; i++)
+            {
+                if (i % 2 == 0 && i % 5 == 0)
+                {
+                    sum = sum + 1;
+                }   
+            }
+            return sum;
         }
 
         // implement this method so it returns true if input is "password"
         // regardless of case
         public static bool CheckInput(string input)
         {
-            input.Equals(input, StringComparison.OrdinalIgnoreCase);
-            return true;
+            if ("password" == input.ToLower())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // implement this method so it returns the sum
         // of all the numbers in the list
         public static int SumList(List<int> list)
         {
-            return -1;
+            int sum = 0;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                sum = sum + list[i];
+            }
+            return sum;
         }
     }
 }
