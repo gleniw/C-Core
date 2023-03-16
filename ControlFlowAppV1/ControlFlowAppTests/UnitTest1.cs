@@ -1,88 +1,107 @@
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+//using Microsoft.VisualStudio.TestPlatform.TestHost;
 using ControlFlowAppV1;
 using NUnit.Framework;
-using Program = ControlFlowAppV1.Program;
+//using Program = ControlFlowAppV1.Program;
+
 
 namespace ControlFlowAppTests
 {
     public class Tests
     {
-        [Test]
-        public void TestIfStudentGradeOf65IsPass()
+        //TESTING EXCEPTIONS
+
+        [TestCase(-34)]
+        [TestCase(-15)]
+        public void WhenTheMarkIsLessThanZero_Grade_ThrowsAnArguementOutOfRangeException (int mark)
         {
-            // Arrange - Pre - Condition
-            var studentResult = 65;
-            var expectedGrade = "Pass";
-            // Act - When
-            var result = Program.Grade(studentResult);
-            // Assert  - Then
-            Assert.That(result, Is.EqualTo(expectedGrade));
+            Assert.That(() => Program.Grade(mark),Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("Allowed Range 0-100"));
         }
 
-        [TestCase(65)]
-        [TestCase(76)]
-        [TestCase(84)]
-        public void TestIfMultipleStudentGradesArePass(int mark)
+        [TestCase(101)]
+        [TestCase(120)]
+        public void WhenTheMarkIsMoreThanOneHundred_Grade_ThrowsAnArguementOutOfRangeException(int mark)
         {
-
-            Assert.That(Program.Grade(mark), Is.EqualTo("Pass"));
+            Assert.That(() => Program.Grade(mark), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("Allowed Range 0-100"));
         }
 
-        [Test]
-        public void TestIfStudentGrade85IsDistinction()
-        {
-            // Arrange - Pre - Condition
-            var studentResult = 85;
-            var expectedGrade = "Distinction";
-            // Act - When
-            var result = Program.Grade(studentResult);
-            // Assert  - Then
-            Assert.That(result, Is.EqualTo(expectedGrade));
-        }
+        //[Test]
+        //public void TestIfStudentGradeOf65IsPass()
+        //{
+        //    // Arrange - Pre - Condition
+        //    var studentResult = 65;
+        //    var expectedGrade = "Pass";
+        //    // Act - When
+        //    var result = Program.Grade(studentResult);
+        //    // Assert  - Then
+        //    Assert.That(result, Is.EqualTo(expectedGrade));
+        //}
+
+        //[TestCase(65)]
+        //[TestCase(76)]
+        //[TestCase(84)]
+        //public void TestIfMultipleStudentGradesArePass(int mark)
+        //{
+
+        //    Assert.That(Program.Grade(mark), Is.EqualTo("Pass"));
+        //}
+
+        //[Test]
+        //public void TestIfStudentGrade85IsDistinction()
+        //{
+        //    // Arrange - Pre - Condition
+        //    var studentResult = 85;
+        //    var expectedGrade = "Distinction";
+        //    // Act - When
+        //    var result = Program.Grade(studentResult);
+        //    // Assert  - Then
+        //    Assert.That(result, Is.EqualTo(expectedGrade));
+        //}
 
 
-        [TestCase(85)]
-        [TestCase(95)]
-        [TestCase(100)]
-        public void TestIfMultipleStudentGradesAreDistinction(int mark)
-        {
+        //[TestCase(85)]
+        //[TestCase(95)]
+        //[TestCase(100)]
+        //public void TestIfMultipleStudentGradesAreDistinction(int mark)
+        //{
 
-            Assert.That(Program.Grade(mark), Is.EqualTo("Distinction"));
-        }
+        //    Assert.That(Program.Grade(mark), Is.EqualTo("Distinction"));
+        //}
 
-        [Test]
-        public void TestIfStudentGrade20IsFail()
-        {
-            // Arrange - Pre - Condition
-            var studentResult = 20;
-            var expectedGrade = "Fail";
-            // Act - When
-            var result = Program.Grade(studentResult);
-            // Assert  - Then
-            Assert.That(result, Is.EqualTo(expectedGrade));
-        }
+        //[Test]
+        //public void TestIfStudentGrade20IsFail()
+        //{
+        //    // Arrange - Pre - Condition
+        //    var studentResult = 20;
+        //    var expectedGrade = "Fail";
+        //    // Act - When
+        //    var result = Program.Grade(studentResult);
+        //    // Assert  - Then
+        //    Assert.That(result, Is.EqualTo(expectedGrade));
+        //}
 
-        [TestCase(0)]
-        [TestCase(30)]
-        [TestCase(64)]
-        public void TestIfMultipleStudentGradesAreFail(int mark)
-        {
+        //[TestCase(0)]
+        //[TestCase(30)]
+        //[TestCase(64)]
+        //public void TestIfMultipleStudentGradesAreFail(int mark)
+        //{
 
-            Assert.That(Program.Grade(mark), Is.EqualTo("Fail"));
-        }
+        //    Assert.That(Program.Grade(mark), Is.EqualTo("Fail"));
+        //}
 
 
-        //Alternative example below
+        ////Alternative example below
 
-        [Test]
+        //[Test]
 
-        [TestCase(0, "Fail")]
-        [TestCase(65, "Pass")]
-        [TestCase(85, "Distinction")]
-        public void TestIfMultipleStudentGradesAreFail(int mark, string expectedResult)
-        {
+        //[TestCase(0, "Fail")]
+        //[TestCase(65, "Pass")]
+        //[TestCase(85, "Distinction")]
+        //public void TestIfMultipleStudentGradesAreFail(int mark, string expectedResult)
+        //{
 
-            Assert.That(Program.Grade(mark), Is.EqualTo(expectedResult));
-        }
+        //    Assert.That(Program.Grade(mark), Is.EqualTo(expectedResult));
+        //}
     }
 }

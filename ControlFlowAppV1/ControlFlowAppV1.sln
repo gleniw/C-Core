@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlFlowAppV1", "ControlFlowAppV1\ControlFlowAppV1.csproj", "{B66C2B28-9992-466C-9864-13CB5B610E10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlFlowAppV1", "ControlFlowAppV1\ControlFlowAppV1.csproj", "{B66C2B28-9992-466C-9864-13CB5B610E10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlFlowAppTests", "ControlFlowAppTests\ControlFlowAppTests.csproj", "{C317417A-02DC-41DC-AF1F-B3F4BA6BC996}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlFlowAppTests", "ControlFlowAppTests\ControlFlowAppTests.csproj", "{C317417A-02DC-41DC-AF1F-B3F4BA6BC996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsAppV1", "ExceptionsAppV1\ExceptionsAppV1.csproj", "{886195F5-57DC-4AA0-9393-244A752013EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionDataTypesTest", "ExceptionDataTypesTest\ExceptionDataTypesTest.csproj", "{E96C8BD7-3AF5-4527-863B-CDCA0B62EB2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{C317417A-02DC-41DC-AF1F-B3F4BA6BC996}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C317417A-02DC-41DC-AF1F-B3F4BA6BC996}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C317417A-02DC-41DC-AF1F-B3F4BA6BC996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886195F5-57DC-4AA0-9393-244A752013EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886195F5-57DC-4AA0-9393-244A752013EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886195F5-57DC-4AA0-9393-244A752013EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886195F5-57DC-4AA0-9393-244A752013EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96C8BD7-3AF5-4527-863B-CDCA0B62EB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96C8BD7-3AF5-4527-863B-CDCA0B62EB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96C8BD7-3AF5-4527-863B-CDCA0B62EB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96C8BD7-3AF5-4527-863B-CDCA0B62EB2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

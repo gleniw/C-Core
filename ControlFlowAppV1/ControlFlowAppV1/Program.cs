@@ -4,21 +4,22 @@ namespace ControlFlowAppV1
 {
     public class Program
     {
+        #region Main
         static void Main(string[] args)
         {
             //LIST TO FIND NUMBERS IN LOOP TYPES
 
-            List<int> nums = new List<int> { 10,6,22,-17,5};
-            //CORRECT
-            Console.WriteLine("Highest foreach loop " + LoopTypes.HighestForEachLoop(nums));
-            //CORRECT
-            Console.WriteLine("Highest for loop " + LoopTypes.HighestForLoop(nums));
-            //CORRECT
-            Console.WriteLine("Highest while loop " + LoopTypes.HighestWhileLoop(nums));
-            //CORRECT
-            Console.WriteLine("Highest do while loop " + LoopTypes.HighestDoWhileLoop(nums));
-            
-            Console.WriteLine();
+            //List<int> nums = new List<int> { 10,6,22,-17,5};
+            ////CORRECT
+            //Console.WriteLine("Highest foreach loop " + LoopTypes.HighestForEachLoop(nums));
+            ////CORRECT
+            //Console.WriteLine("Highest for loop " + LoopTypes.HighestForLoop(nums));
+            ////CORRECT
+            //Console.WriteLine("Highest while loop " + LoopTypes.HighestWhileLoop(nums));
+            ////CORRECT
+            //Console.WriteLine("Highest do while loop " + LoopTypes.HighestDoWhileLoop(nums));
+
+            //Console.WriteLine();
 
             //var message = Priority(2);
             //Console.WriteLine(message);
@@ -35,7 +36,20 @@ namespace ControlFlowAppV1
             //int mark = 85;
             //var grade = mark >= 65 ? (mark >= 85 ? "Distinction" : "Pass") : "Fail";
 
+            //EXCEPTIONS
+            try
+            {
+                Console.WriteLine("Sam's mark is 82: " + Grade(82));
+                Console.WriteLine("Alex's mark is -23: " + Grade(-23));
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                //Console.WriteLine("Invalid data, please try again");
+                Console.WriteLine(e.Message); //Throw from Line 66
+            }
+
         }
+        #endregion
 
         ////Refactored version of above
 
@@ -44,7 +58,19 @@ namespace ControlFlowAppV1
         //    return mark >= 65 ? (mark >= 85 ? "Distinction" : "Pass") : "Fail";
         //}
 
-        //public static string Priority (int level)
+        //EXCEPTIONS
+
+        public static string Grade(int mark)
+        {
+            if (mark < 0 || mark > 100)
+            {
+                throw new ArgumentOutOfRangeException("Mark " + mark + " " + "Allowed Range 0-100"); //throw an exception to send a message if error occurs
+            }
+
+            return mark >= 65 ? (mark >= 85 ? "Distinction" : "Pass") : "Fail";
+        }
+
+        //public static string Priority(int level)
         //{
         //    string priority = "Code ";
         //    switch (level)
