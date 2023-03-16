@@ -63,30 +63,54 @@ namespace Op_CtrlFlow
             }
             //string ticketType = string.Empty;
             //return ticketType;
+            //GOOD EXAMPLE OF EX
         }
 
         public static string Grade(int mark)
         {
-            if (mark >= 100)
+            if (mark >= 60)
             {
-                return "Pass with Distinction";
+                if (mark >= 75)
+                {
+                    return "Pass with Distinction";
+                }
+                else
+                {
+                    return "Pass with Merit";
+                }
             }
-            else if (mark >= 60 && mark <= 74)
+            else
             {
-                return "Pass with Merit";
+                if (mark >= 40 && mark <= 59)
+                {
+                    return "Pass";
+                }
+                else
+                {
+                    return "Fail";
+                }
             }
-            else if (mark >= 40 && mark <= 59)
-            {
-                return "Pass";
-            }
-            else if (mark >= 0 && mark <= 39)
-            {
-                return "Fail";
-            }
-            else 
-            {
-                return "Invalid Entry";
-            }
+
+            //if (mark >= 100)
+            //{
+            //    return "Pass with Distinction";
+            //}
+            //else if (mark >= 60 && mark <= 74)
+            //{
+            //    return "Pass with Merit";
+            //}
+            //else if (mark >= 40 && mark <= 59)
+            //{
+            //    return "Pass";
+            //}
+            //else if (mark >= 0 && mark <= 39)
+            //{
+            //    return "Fail";
+            //}
+            //else
+            //{
+            //    return "Invalid Entry";
+            //}
         }
 
         public static int GetScottishMaxWeddingNumbers(int covidLevel)
@@ -94,19 +118,19 @@ namespace Op_CtrlFlow
             
             switch (covidLevel)
             {
-                case <= 20:
+                case 20:
                     covidLevel =  4;
                     break;
-                case <= 30:
+                case 30:
                     covidLevel = 3;
                     break;
-                case <= 50:
+                case  50:
                     covidLevel = 2;
                     break;
-                case <= 100:
+                case 100:
                     covidLevel = 1;
                     break;
-                case <= 200:
+                case 200:
                     covidLevel = 0;
                     break;
                 default:
