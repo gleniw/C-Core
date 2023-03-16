@@ -35,7 +35,7 @@ namespace UnitTestExceptionsTesting
         {
             // Arrange - Pre - Condition
             var age = 18;
-            var expectedResult = "All films are available.";
+            var expectedResult = "all films are available.";
             // Act - When
             var result = Program.Classification(age);
             // Assert  - Then
@@ -66,7 +66,7 @@ namespace UnitTestExceptionsTesting
         [TestCase(100)]
         public void GivenAnAgeAbove18_Result_Returns_AllFilmsAvaliable(int ageOfViewer)
         {
-            Assert.That(Program.Classification(ageOfViewer), Is.EqualTo("All films are available."));
+            Assert.That(Program.Classification(ageOfViewer), Is.EqualTo("all films are available."));
         }
 
         //Testing Exceptions

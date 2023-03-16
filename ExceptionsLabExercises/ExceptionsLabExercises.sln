@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreetingExceptionsLabExerci
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreetingExceptionTesting", "GradeExceptionTesting\GreetingExceptionTesting.csproj", "{ED7CDDB7-E73A-4400-A07A-A9D5454187C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassificationsExceptionsLabExercises", "UnitTestExceptionsLabExercises\ClassificationsExceptionsLabExercises.csproj", "{B36FDD02-734E-42C7-BF74-B4BBF8FCBF25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassificationsExceptionsLabExercises", "UnitTestExceptionsLabExercises\ClassificationsExceptionsLabExercises.csproj", "{B36FDD02-734E-42C7-BF74-B4BBF8FCBF25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassificationstExceptionsTesting", "UnitTestExceptionsTesting\ClassificationstExceptionsTesting.csproj", "{1D609B29-07DF-41A2-8E33-BA6D389CCF00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassificationstExceptionsTesting", "UnitTestExceptionsTesting\ClassificationstExceptionsTesting.csproj", "{1D609B29-07DF-41A2-8E33-BA6D389CCF00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorsControlFlowLab", "OperatorsControlFlowLab\OperatorsControlFlowLab.csproj", "{F4752375-DFE7-4917-A127-B6C635D8F559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorsControlFlowExceptionTesting", "OperatorsControlFlowExceptionTesting\OperatorsControlFlowExceptionTesting.csproj", "{DD728E9E-64C1-411F-B851-2DC7B841C98E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{1D609B29-07DF-41A2-8E33-BA6D389CCF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D609B29-07DF-41A2-8E33-BA6D389CCF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D609B29-07DF-41A2-8E33-BA6D389CCF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4752375-DFE7-4917-A127-B6C635D8F559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4752375-DFE7-4917-A127-B6C635D8F559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4752375-DFE7-4917-A127-B6C635D8F559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4752375-DFE7-4917-A127-B6C635D8F559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD728E9E-64C1-411F-B851-2DC7B841C98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD728E9E-64C1-411F-B851-2DC7B841C98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD728E9E-64C1-411F-B851-2DC7B841C98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD728E9E-64C1-411F-B851-2DC7B841C98E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
