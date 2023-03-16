@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Formats.Asn1;
 
 namespace DataTypes_Lib
 {
@@ -6,12 +7,17 @@ namespace DataTypes_Lib
     {
         public static short UIntToShort(uint num)
         {
+            if ((short)num != num)
+            {
+                throw new OverflowException("Invalid Type " + num);
+            }
             return (short)num;
         }
 
         public static long FloatToLong(float num)
         {
-            return (long)num;
+            long lnum = (long)num;
+            return lnum;
         }
     }
 }
