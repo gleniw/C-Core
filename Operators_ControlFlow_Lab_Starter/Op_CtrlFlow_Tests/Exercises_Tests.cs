@@ -1,12 +1,73 @@
-﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
+﻿//using Microsoft.VisualStudio.TestPlatform.TestHost;
+//using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NUnit.Framework;
 using Op_CtrlFlow;
+using System;
 using System.Collections.Generic;
 
 namespace Op_CtrlFlow_Tests
 {
     public class Exercises_Tests
     {
+        #region
+
+        //Average Method Exception Tests
+
+        //[TestCase()]
+        //public void WhenAListIsEmpty_ThrowsAnArguementOutOfRangeException(List<int> nums)
+        //{
+        //    Assert.That(() => Exercises.Average(nums), Throws.TypeOf<ArgumentNullException>()
+        //    .With.Message.Contain("List cannot be empty"));
+        //}
+
+        //Ticket Type Exception Tests
+       
+        [TestCase(-10)]
+        [TestCase(-15)]
+        public void WhenAgeIsLessThanZero_ThrowsAnArguementOutOfRangeException(int age)
+        {
+            Assert.That(() => Exercises.TicketType(age), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("Allowed Range 0-120"));
+        }
+
+        [TestCase(125)]
+        [TestCase(130)]
+        public void WhenAgeIsMoreThanOneHundredAndTwenty_ThrowsAnArguementOutOfRangeException(int age)
+        {
+            Assert.That(() => Exercises.TicketType(age), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("Allowed Range 0-120"));
+        }
+
+        //Grade Exception Tests
+
+        [TestCase(-10)]
+        [TestCase(-15)]
+        public void WhenGradeIsLessThanZero_ThrowsAnArguementOutOfRangeException(int mark)
+        {
+            Assert.That(() => Exercises.Grade(mark), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("You can only score between 0-100"));
+        }
+
+        [TestCase(125)]
+        [TestCase(130)]
+        public void WhenGradeIsMoreThanOneHundred_ThrowsAnArguementOutOfRangeException(int mark)
+        {
+            Assert.That(() => Exercises.Grade(mark), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("You can only score between 0-100"));
+        }
+
+        //GetScottishMaxWeddingNumbers Exception Tests
+
+        [TestCase(5)]
+        [TestCase(6)]
+        public void WhenCovidLevelIsInvalid_ThrowsAnArguementOutOfRangeException(int covidlevel)
+        {
+            Assert.That(() => Exercises.GetScottishMaxWeddingNumbers(covidlevel), Throws.TypeOf<ArgumentOutOfRangeException>()
+            .With.Message.Contain("Maximum amount of people entry is 200"));
+        }
+
+        #endregion
+
         // write unit test(s) for MyMethod here
 
         [Test]
@@ -59,12 +120,12 @@ namespace Op_CtrlFlow_Tests
             Assert.That(Exercises.Average(myList), Is.EqualTo(4.4));
         }
 
-        [Test]
-        public void WhenListIsEmpty_Average_ReturnsZero()
-        {
-            var myList = new List<int>() {};
-            Assert.That(Exercises.Average(myList), Is.EqualTo(0));
-        }
+        //[Test]
+        //public void WhenListIsEmpty_Average_ReturnsZero()
+        //{
+        //    var myList = new List<int>() {};
+        //    Assert.That(Exercises.Average(myList), Is.EqualTo(0));
+        //}
 
         [TestCase(100, "OAP")]
         [TestCase(60, "OAP")]

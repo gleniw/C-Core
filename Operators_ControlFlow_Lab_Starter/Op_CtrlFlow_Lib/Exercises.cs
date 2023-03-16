@@ -18,9 +18,15 @@ namespace Op_CtrlFlow
         // returns the average of the array nums
         public static double Average(List<int> nums)
         {
-            if(nums.Count == 0) return 0;
 
             int sum = 0;
+
+            if (nums.Count == 0)
+            {
+                throw new ArgumentNullException("List " + nums + " " + "List cannot be empty");
+            }
+
+            //if(nums.Count == 0) return 0;
 
             for (int i = 0; i < nums.Count; i++)
             {
@@ -37,6 +43,10 @@ namespace Op_CtrlFlow
         // "Free" if they are under 5
         public static string TicketType(int age)
         {
+            if (age < 0 || age > 120)
+            {
+                throw new ArgumentOutOfRangeException("Age " + age + " " + "Allowed Range 0-120");
+            }
             if (age >= 0 && age <= 4)
             {
                 return "Free";
@@ -59,15 +69,17 @@ namespace Op_CtrlFlow
             }
             else
             {
-                return "Out of Range";
+                return " ";
             }
-            //string ticketType = string.Empty;
-            //return ticketType;
-            //GOOD EXAMPLE OF EX
+
         }
 
         public static string Grade(int mark)
         {
+            if (mark < 0 || mark > 100)
+            {
+                throw new ArgumentOutOfRangeException("Mark " + mark + " " + "You can only score between 0-100");
+            }
             if (mark >= 60)
             {
                 if (mark >= 75)
@@ -124,7 +136,7 @@ namespace Op_CtrlFlow
                 case 30:
                     covidLevel = 3;
                     break;
-                case  50:
+                case 50:
                     covidLevel = 2;
                     break;
                 case 100:
@@ -134,8 +146,7 @@ namespace Op_CtrlFlow
                     covidLevel = 0;
                     break;
                 default:
-                    covidLevel = 10;
-                    break;
+                    throw new ArgumentOutOfRangeException("Maximum amount of people entry is 200");
             }
             return covidLevel;
         }
