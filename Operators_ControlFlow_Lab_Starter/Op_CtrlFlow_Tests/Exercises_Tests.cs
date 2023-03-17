@@ -13,15 +13,16 @@ namespace Op_CtrlFlow_Tests
 
         //Average Method Exception Tests
 
-        //[TestCase()]
-        //public void WhenAListIsEmpty_ThrowsAnArguementOutOfRangeException(List<int> nums)
-        //{
-        //    Assert.That(() => Exercises.Average(nums), Throws.TypeOf<ArgumentNullException>()
-        //    .With.Message.Contain("List cannot be empty"));
-        //}
+        [Test]
+        public void WhenAListIsEmpty_ThrowsAnArguementOutOfRangeException()
+        {
+            var myList = new List<int>();
+            Assert.That(() => Exercises.Average(myList), Throws.TypeOf<ArgumentNullException>()
+            .With.Message.Contain("List cannot be empty"));
+        }
 
         //Ticket Type Exception Tests
-       
+
         [TestCase(-10)]
         [TestCase(-15)]
         public void WhenAgeIsLessThanZero_ThrowsAnArguementOutOfRangeException(int age)
