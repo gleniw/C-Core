@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.ComponentModel.Design;
 
 namespace MoreTypes_Lib
 {
@@ -9,14 +10,13 @@ namespace MoreTypes_Lib
         public static string ManipulateString(string input, int num)
         {
             
-            input = input.ToUpper();
-            input = input.Trim();
-            return ($"{input} {num}");
-
-            //for (int i = 0; i <= num; i++)
-            //{
-            //    i.ToString();
-            //}
+            string newInput = input.Trim().ToUpper();
+            
+            for (int i = 0; i < num; i++)
+            {
+                newInput = newInput + i;
+            }
+            return ($"{newInput}");
         }
 
         // returns a formatted address string given its components
@@ -39,7 +39,19 @@ namespace MoreTypes_Lib
         // returns the double represented by the string, or -999 if conversion is not possible
         public static double ParseNum(string numString)
         {
-                return double.Parse(numString); 
+            int number;
+            bool isTrue = int.TryParse(numString, out number);
+
+            if (isTrue)
+            { 
+                return -999; 
+            }
+            else
+            {
+                return double.Parse(numString);
+            }
+            
+
         }
 
         // Returns the a string containing the count of As, Bs, Cs and Ds in the parameter string
