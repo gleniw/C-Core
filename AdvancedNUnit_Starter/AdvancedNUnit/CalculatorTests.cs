@@ -89,7 +89,28 @@ namespace AdvancedNUnit
         //    Assert.That(list2, Does.Contain("1"));
         //}
 
-        // TO BE COMPELETED 
-        
+        //[TestCase(2, 4, 6)]
+        //[TestCase(-2, 3, 1)]
+
+        //public void Add_Always_Returns_Expected_Result(int num1, int num2, int exp)
+        //{
+        //    var subject = new Calculator { Num1 = num1, Num2 = num2 };
+        //    Assert.That(subject.Add(), Is.EqualTo(exp));
+        //}
+
+        [TestCaseSource("AddCases")]
+
+        public void Add_Always_Returns_Expected_Result(int num1, int num2, int exp)
+        {
+            var subject = new Calculator { Num1 = num1, Num2 = num2 };
+            Assert.That(subject.Add(), Is.EqualTo(exp));
+        }
+
+        private static int[][] AddCases =
+        {
+            new int[]{2,4,6},
+            new int []{-2,3,1}
+        };
+
     }
 }

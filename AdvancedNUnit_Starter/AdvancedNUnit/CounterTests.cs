@@ -4,8 +4,10 @@ using System.Diagnostics;
 namespace AdvancedNUnit
 {
     [TestFixture]
-    //[Ignore("Not using these tests yet")]
 
+    //TestFixture. This is the attribute that marks a class that contains tests and, optionally, setup or teardown methods
+
+    //[Ignore("Not using these tests yet")]
 
     public class CounterTests
     {
