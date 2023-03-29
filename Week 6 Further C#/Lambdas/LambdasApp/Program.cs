@@ -99,10 +99,10 @@ namespace LambdasApp
 
             Console.WriteLine("\nUsing Select to return a particular property within class");
 
-            var peopleOver20Query = people.Where(c => c.Age > 20).Select(p => p.Name); 
+            var peopleOver20Query = people.Where(c => c.Age > 20).Select(p => p.Name);
 
-            foreach (var p in peopleOver20Query) 
-            { 
+            foreach (var p in peopleOver20Query)
+            {
                 Console.WriteLine(p);
             }
 
@@ -122,20 +122,17 @@ namespace LambdasApp
             }
 
             //Other queries Max
-
-
-            Console.WriteLine("\n Other LAMBDA option - Create Methods");
-
-            public static int Square(int x) =>
-
-            public static int Square(int x)
-            {
-                return person.Age < 30;
-            }
-
             #endregion
 
         }
+
+        //Expression body syntax below - LAMBDA METHOD
+        public static int Square(int x) => x * x; 
+
+        //public static int Square(int x)
+        //{
+        //    return x * x;
+        //}
 
         public static bool IsYoung(Person person)
         {
@@ -151,8 +148,15 @@ namespace LambdasApp
     public class Person
 
     {
+        private int _age;
         public string Name { get; set; }
-        public int Age { get; set; }
+
+        //Below is example of Get / Set in LAMBDA / TERNERY EXPRESSION
+        public int Age
+        {
+            get => _age;
+            set => _age = value < 0 ? throw new ArgumentException() : value;
+        }
         public string City { get; set; }
         public override string ToString()
         {
