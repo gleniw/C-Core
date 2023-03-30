@@ -17,14 +17,14 @@ namespace SerialisationApp
 
         public int? SpartaNo { get; init; }
 
-        [JsonIgnore] // ignores the below when output to Json
-        public string FullName => $"{FirstName} {LastName}"; //Property - Get with no Set
+        //[JsonIgnore] // ignores the below when output to Json
+        //public string FullName => $"{FirstName} {LastName}"; //Property - Get with no Set
 
         //If the below string adds ? it will be against Liskov Substitution Priciple
         //as Null is being returned rather than String
         public override string ToString()
         {
-            return $"{SpartaNo} - {FullName}";
+            return $"{SpartaNo} {FirstName} {LastName} "; //- {FullName}";
         }
 
     }
