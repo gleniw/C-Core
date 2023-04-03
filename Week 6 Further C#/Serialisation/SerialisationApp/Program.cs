@@ -68,7 +68,7 @@
             //Deserialise
             Trainee deserialisedYamlTrainee = _serialiser.DeserialiseFromFile<Trainee>($"{_path}/YamlTrainee.xml");
 
-            Trainee deserialisedYamlCourse = _serialiser.DeserialiseFromFile<Trainee>($"{_path}/YamlCourse.xml");
+            //Trainee deserialisedYamlCourse = _serialiser.DeserialiseFromFile<Trainee>($"{_path}/YamlCourse.xml");
 
             #endregion
         }
