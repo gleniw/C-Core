@@ -45,6 +45,7 @@ namespace SL_TestAutomationFramework.Tests
 
             SL_Website.SL_Homepage.ClickLogInButton();
 
+            //The below should be dealt with by the product page
             IWebElement alert = SL_Website.SeleniumDriver.FindElement(By.ClassName("error-message-container")).FindElement(By.TagName("H3"));
             Assert.That(alert.Text, Does.Contain("Epic Sadface").IgnoreCase);
 
