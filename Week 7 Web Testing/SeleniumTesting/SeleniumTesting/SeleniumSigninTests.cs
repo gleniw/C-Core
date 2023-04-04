@@ -2,7 +2,7 @@ using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace SeleniumTesting
 {
@@ -13,7 +13,11 @@ namespace SeleniumTesting
         [Category("Happy")]
         public void GivenIAmOnTheHomePage_WhenIEnterAValidEmailAndPassword_IshouldLandOnTheInventoryPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            var options = new ChromeOptions();
+            options.AddArgument("headless"); // for firefox you would change the driver and change headless to --headless
+            //The above should run the test without opening a new browser
+
+            using (IWebDriver driver = new ChromeDriver(options)) //options added to implement the above
             {
                 //GIVEN 
                 //WHEN
