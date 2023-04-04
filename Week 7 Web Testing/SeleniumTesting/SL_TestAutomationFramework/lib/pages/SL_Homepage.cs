@@ -15,6 +15,7 @@ namespace SL_TestAutomationFramework.lib.pages
         //Below is the best way to write out a property
         private IWebElement _passwordField => _seleniumDriver.FindElement(By.Id("password")); // LAMBDA Invokes the method, cannot just assign
 
+
         //Below is the full version
         //private IWebElement _passwordField
         //{

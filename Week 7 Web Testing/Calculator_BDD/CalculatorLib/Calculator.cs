@@ -1,4 +1,5 @@
-﻿namespace CalculatorLib
+﻿using System.Linq;
+namespace CalculatorLib
 {
     public class Calculator
     {
@@ -26,10 +27,19 @@
             return Num1 - Num2;
         }
 
-        //public int SumOfNumbersDivisibleBy2(object nums)
-        //{
-        //    return 
-        //}
+        public int SumOfNumbersDivisibleBy2(List<int> nums)
+        {
+            int sum = 0;
+
+            foreach (var n in nums)
+            {
+                if (n % 2 == 0)
+                {
+                    sum += n;
+                }
+            }
+            return sum;
+        }
     }
 
     // BENEFITS 

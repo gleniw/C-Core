@@ -31,7 +31,9 @@ namespace SL_TestAutomationFramework.Tests
             Assert.That(SL_Website.SeleniumDriver.Url, Is.EqualTo(AppConfigReader.InventoryPageUrl));
 
         }
+        
         [Test]
+        [Ignore ("Testing Happy Paths")]
         [Category("Sad Path")]
         public void GivenIAmOnTheHomePage_IEnterValidEmailAndInvalidPassword_ThenIShouldReceiveAnErrorMessage()
         {
@@ -51,14 +53,14 @@ namespace SL_TestAutomationFramework.Tests
 
         }
 
-        //Performed after all methods 
-        [OneTimeTearDown]
-        public void CleanUp()
-        {
-            SL_Website.SeleniumDriver.Quit(); //Quits all windows - also calls dispose
-            //SL_Website.SeleniumDriver.Dispose(); //Gets rid of unmanged resources 
+        ////Performed after all methods 
+        //[OneTimeTearDown]
+        //public void CleanUp()
+        //{
+        //    SL_Website.SeleniumDriver.Quit(); //Quits all windows - also calls dispose
+        //    //SL_Website.SeleniumDriver.Dispose(); //Gets rid of unmanged resources 
 
-        }
+        //}
 
 
     }

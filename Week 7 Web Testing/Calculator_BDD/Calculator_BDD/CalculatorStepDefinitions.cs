@@ -62,19 +62,20 @@ namespace Calculator_BDD
 
         #region Exercise 2
 
-        [Then(@"a DivideByZero Exception should a DivideByZeroException when I press divide")]
-        public void ThenADivideByZeroExceptionShouldADivideByZeroExceptionWhenIPressDivide()
-        {
-            try
-            {
-                _result = _calculator.Divide();
-            }
-            catch (DivideByZeroException e)
-            {
-                _exception = e;
-            }
+        //REMOVED AS NOT NEEDED AND REMOVED FROM FEATURE
+        //[Then(@"a DivideByZero Exception should a DivideByZeroException when I press divide")]
+        //public void ThenADivideByZeroExceptionShouldADivideByZeroExceptionWhenIPressDivide()
+        //{
+        //    try
+        //    {
+        //        _result = _calculator.Divide();
+        //    }
+        //    catch (DivideByZeroException e)
+        //    {
+        //        _exception = e;
+        //    }
 
-        }
+        //}
 
         [Then(@"the exception should have the message ""([^""]*)""")]
         public void ThenTheExceptionShouldHaveTheMessage(string expectedMessage)
@@ -88,18 +89,61 @@ namespace Calculator_BDD
         //[Given(@"I enter the numbers below to a list")]
         //public void GivenIEnterTheNumbersBelowToAList(Table table)
         //{
+
+        //}
+
+        //[When(@"I iterate through the list to add all the even numbers")]
+        //public void WhenIIterateThroughTheListToAddAllTheEvenNumbers(List<int> nums)
+        //{
+
+        //}
+
+        //[Given(@"I enter the numbers below to a list")]
+        //public void WhenIEnterTheNumbersBelowToAList(Table table)
+        //{
+        //    int num1 = 0;
         //    List<int> nums = new List<int>();
         //    foreach (var num in table.Rows)
         //    {
         //        nums.Add(int.Parse(num["nums"]));
         //    }
+        //    foreach (int num2 in nums)
+        //    {
+        //        if (num2 % 2 == 0)
+        //        {
+        //            num1 += num2;
+        //            _calculator.Num1 = num1;
+        //            _calculator.Num2 = num2;
+        //            _result = _calculator.Add();
+
+
+        //        }
+        //        Console.WriteLine(_result);
+
+        //    }
+
+
+        //    //nums.Where(n => n % 2 == 0).Sum();
         //}
 
-        //[When(@"I iterate through the list to add all the even numbers")]
-        //public void WhenIIterateThroughTheListToAddAllTheEvenNumbers()
-        //{
-        //    _result = _calculator.SumOfNumbersDivisibleBy2(nums);
-        //}
+
+        [Given(@"I enter the numbers below to a list")]
+        public void GivenIEnterTheNumbersBelowToAList(Table table)
+        {
+            List<int> nums = new List<int>();
+            foreach (var num in table.Rows)
+            {
+                nums.Add(int.Parse(num["nums"]));
+            }
+
+
+        }
+
+        [When(@"I iterate through the list to add all the even numbers")]
+        public void WhenIIterateThroughTheListToAddAllTheEvenNumbers(List<int> nums)
+        {
+            _result = _calculator.SumOfNumbersDivisibleBy2(nums);
+        }
 
         #endregion
 

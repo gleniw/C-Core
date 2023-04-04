@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SL_TestAutomationFramework.lib.pages;
+using SL_TestAutomationFramework.Tests;
 using SL_TestAutomationFramework.lib.driver_config;
 using OpenQA.Selenium;
 
@@ -16,6 +17,8 @@ namespace SL_TestAutomationFramework.lib.pages
         #region Accessable Page Objects and Selenium Driver
         public IWebDriver SeleniumDriver { get; set; }
         public SL_HomePage SL_Homepage { get; set; }
+
+        public SL_Inventory_Tests SL_Inventory_Tests { get; set; }
 
         public SL_InventoryPage SL_InventoryPage { get; set; }
         #endregion
