@@ -1,6 +1,7 @@
 using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SeleniumTesting
@@ -64,6 +65,32 @@ namespace SeleniumTesting
                 ////GS Assert.That(errorMessage, Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
                 //Assert.That(errorMessage, Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
 
+            }
+        }
+
+        [Test]
+        [Category("Happy")]
+        public void GivenIAmOnTheDragAndDropPage_WhenIDragBoxAToBoxB_ThenTheBoxesHaveSwitchedPositions()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+
+                driver.Manage().Window.Maximize();
+                driver.Navigate().GoToUrl("https://demoqa.com/droppable/");
+
+                Actions actions = new Actions(driver);
+
+                var dragLocation = driver.FindElement(By.Id("draggable"));
+                var dropLocation = driver.FindElement(By.Id("droppable"));
+
+                actions.ClickAndHold(dragLocation)
+                    .MoveToElement(dropLocation)
+                    .Release()
+                    .Perform();
+                
+                //actions.DragAndDropToOffset(dragLocation, dropLocation)
+                //    .Build()
+                //    .Perform();
             }
         }
     }
