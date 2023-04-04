@@ -58,7 +58,6 @@ namespace Calculator_BDD
                 _exception = e;
             }
 
-            //_result = _calculator.Divide();
         }
 
         #region Exercise 2
@@ -66,15 +65,14 @@ namespace Calculator_BDD
         [Then(@"a DivideByZero Exception should a DivideByZeroException when I press divide")]
         public void ThenADivideByZeroExceptionShouldADivideByZeroExceptionWhenIPressDivide()
         {
-            //try
-            //{
-            //    _result = _calculator.Divide();
-            //}
-            //catch (DivideByZeroException e)
-            //{
-            //    _exception = e;
-            //}
-            _result = _calculator.Divide();
+            try
+            {
+                _result = _calculator.Divide();
+            }
+            catch (DivideByZeroException e)
+            {
+                _exception = e;
+            }
 
         }
 
