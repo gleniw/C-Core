@@ -64,6 +64,11 @@ namespace SeleniumTesting
                 Thread.Sleep(1000);
                 loginButton.Click();
                 Thread.Sleep(1000);
+                //NISH WORKING SOLUTION
+                IWebElement alert = driver.FindElement(By.ClassName("error-message-container")).FindElement(By.TagName("H3"));
+                Assert.That(alert.Text, Does.Contain("Epic Sadface").IgnoreCase);
+
+
                 ////GS var errorMessage = driver.FindElement(By.CssSelector("*[data - test = \"error\"]"));
                 //var errorMessage = driver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
                 ////GS Assert.That(errorMessage, Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
