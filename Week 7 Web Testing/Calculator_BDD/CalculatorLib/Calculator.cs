@@ -12,7 +12,7 @@
 
         public int Divide()
         {
-            //if (Num2 == 0) throw new DivideByZeroException();
+            if (Num1 == 0 || Num2 == 0) throw new DivideByZeroException("Cannot Divide By Zero");
             return Num1 / Num2;
         }
 
@@ -25,6 +25,11 @@
         {
             return Num1 - Num2;
         }
+
+        //public int SumOfNumbersDivisibleBy2(object nums)
+        //{
+        //    return 
+        //}
     }
 
     // BENEFITS 

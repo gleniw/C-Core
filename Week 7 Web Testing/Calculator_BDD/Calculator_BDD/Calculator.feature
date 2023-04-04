@@ -54,3 +54,16 @@ Scenario: Divide By Zero
    | input1 | 
    | 1      | 
    | 6      | 
+
+#@HappyPath
+#Scenario: SumOfNumbersDivisibleBy2
+# Given I have a calculator
+# And I enter the numbers below to a list
+# | nums |
+# | 1    |
+# | 2    |
+# | 3    |
+# | 4    |
+# | 5    |
+# When I iterate through the list to add all the even numbers
+# Then the result should be 6 

@@ -9,6 +9,7 @@ namespace Calculator_BDD
     {
         private Calculator _calculator;
         private int _result;
+        private Exception _exception;
 
         [Given(@"I have a calculator")]
         public void GivenIHaveACalculator()
@@ -48,38 +49,61 @@ namespace Calculator_BDD
         [When(@"I press divide")]
         public void WhenIPressDivide()
         {
-            _result = _calculator.Divide();
+            try
+            {
+                _result = _calculator.Divide();
+            }
+            catch (DivideByZeroException e)
+            {
+                _exception = e;
+            }
+
+            //_result = _calculator.Divide();
         }
 
-
+        #region Exercise 2
 
         [Then(@"a DivideByZero Exception should a DivideByZeroException when I press divide")]
         public void ThenADivideByZeroExceptionShouldADivideByZeroExceptionWhenIPressDivide()
         {
+            //try
+            //{
+            //    _result = _calculator.Divide();
+            //}
+            //catch (DivideByZeroException e)
+            //{
+            //    _exception = e;
+            //}
             _result = _calculator.Divide();
+
         }
 
         [Then(@"the exception should have the message ""([^""]*)""")]
-        //public void ThenTheExceptionShouldHaveTheMessage(string expectedMessage)
+        public void ThenTheExceptionShouldHaveTheMessage(string expectedMessage)
+        {
+            Assert.That(_exception.Message, Is.EqualTo(expectedMessage));
+        }
+        #endregion
+
+        #region Exercise 3
+
+        //[Given(@"I enter the numbers below to a list")]
+        //public void GivenIEnterTheNumbersBelowToAList(Table table)
         //{
-        //    try
+        //    List<int> nums = new List<int>();
+        //    foreach (var num in table.Rows)
         //    {
-        //        _calculator.Divide();
-        //    }
-        //    catch (DivideByZeroException e)
-        //    {
-        //        Assert.AreEqual(expectedMessage, e.Message);
+        //        nums.Add(int.Parse(num["nums"]));
         //    }
         //}
 
-        public void ThenADivideByZeroExceptionShouldADivideByZeroExceptionWhenIPressDivide()
-        {
-            try 
-            {
-                _result = _calculator.Divide();
-                Assert.Fail("Expected DivideByZeroException was not thrown"); } catch (DivideByZeroException e) { Assert.AreEqual("Cannot Divide By Zero", e.Message); } }
+        //[When(@"I iterate through the list to add all the even numbers")]
+        //public void WhenIIterateThroughTheListToAddAllTheEvenNumbers()
+        //{
+        //    _result = _calculator.SumOfNumbersDivisibleBy2(nums);
+        //}
 
-
+        #endregion
 
         [Then(@"the result should be (.*)")]
         public void ThenTheResultShouldBe(int expected)
