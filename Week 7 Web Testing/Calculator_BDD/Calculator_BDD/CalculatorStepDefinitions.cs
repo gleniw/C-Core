@@ -10,6 +10,7 @@ namespace Calculator_BDD
         private Calculator _calculator;
         private int _result;
         private Exception _exception;
+        private List<int> _numbers;
 
         [Given(@"I have a calculator")]
         public void GivenIHaveACalculator()
@@ -39,12 +40,15 @@ namespace Calculator_BDD
             _result = _calculator.Subtract();
         }
 
+        #region Exercise 1
 
         [When(@"I press multiply")]
         public void WhenIPressMultiply()
         {
             _result = _calculator.Multiply();
         }
+
+        #endregion
 
         [When(@"I press divide")]
         public void WhenIPressDivide()
@@ -130,19 +134,19 @@ namespace Calculator_BDD
         [Given(@"I enter the numbers below to a list")]
         public void GivenIEnterTheNumbersBelowToAList(Table table)
         {
-            List<int> nums = new List<int>();
-            foreach (var num in table.Rows)
+            _numbers = new List<int>();
+            foreach (var row in table.Rows)
             {
-                nums.Add(int.Parse(num["nums"]));
+                _numbers.Add(int.Parse(row[0]));
             }
-
+            _calculator.Numbers = _numbers;
 
         }
 
         [When(@"I iterate through the list to add all the even numbers")]
         public void WhenIIterateThroughTheListToAddAllTheEvenNumbers(List<int> nums)
         {
-            _result = _calculator.SumOfNumbersDivisibleBy2(nums);
+            _result = _calculator.SumEvenNumbers(_numbers);
         }
 
         #endregion
