@@ -4,28 +4,31 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
 using SL_TestAutomationFramework.lib.pages;
+using TechTalk.SpecFlow.Assist;
+using SL_TestAutomationFramework.Utils;
 
 
 namespace SL_TestAutomationFramework.BDD
 {
+
     [Binding]
-    public class SL_SigninStepDefinitions
+    [Scope(Feature = "SL_Signin")]
+    public class SL_SigninStepDefinitions : SharedSteps
     {
+        #region
+        //[BeforeScenario("Happy")]
+
+        //public void ExampleOfTagScoping()
+        //{
+        //    SL_Website.SeleniumDriver.Navigate().GoToUrl("https://www.spurs.co.uk");
+        //    Thread.Sleep(1000);
+        //}
+
+        //The above will perform the action before for only the happy paths 
+        #endregion
+
         #region Happy Path
 
-        public SL_Website<ChromeDriver> SL_Website { get; } = new();
-
-        [Given(@"I am on the home page")]
-        public void GivenIAmOnTheHomePage()
-        {
-            SL_Website.SL_HomePage.VisitHomePage();
-        }
-
-        [Given(@"I have entered a valid e-mail")]
-        public void GivenIHaveEnteredAValidE_Mail()
-        {
-            SL_Website.SL_HomePage.EnterUserName(AppConfigReader.UserName);
-        }
 
         [Given(@"I have entered a valid password")]
         public void GivenIHaveEnteredAValidPassword()
@@ -59,6 +62,26 @@ namespace SL_TestAutomationFramework.BDD
         {
             Assert.That(SL_Website.SL_HomePage.CheckErrorMessage(), Does.Contain(expected));
         }
+
+        #endregion
+
+        #region Sad 2
+
+        [Given(@"I have the following credentials")]
+        public void GivenIHaveTheFollowingCredentials(Table table)
+        {
+            _credentials = table.CreateInstance<Credentials>();
+            //var set = table.CreateSet<Credentials>(); Use this for more rows
+
+        }
+
+        [Given(@"I enter these credential")]
+        public void GivenIEnterTheseCredential()
+        {
+            SL_Website.SL_HomePage.EnterSignInCredentials(_credentials);
+        }
+
+
 
         #endregion
 

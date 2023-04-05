@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SL_TestAutomationFramework.Utils;
 
 namespace SL_TestAutomationFramework.lib.pages
 {
@@ -23,6 +24,15 @@ namespace SL_TestAutomationFramework.lib.pages
         public void EnterPassword(string password) => _passwordField.SendKeys(password);
         public void ClickLoginButton() => _loginButton.Click();
         public string CheckErrorMessage() => _alert.Text;
+
+        public void EnterSignInCredentials(Credentials credentials)
+        {
+            EnterUserName(credentials.UserName);
+            EnterPassword(credentials.Password);
+
+        }
+        //Passing all credentials in one method
+        //Good for things like a signup form
 
     }
 }

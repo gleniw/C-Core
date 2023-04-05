@@ -30,5 +30,18 @@ Examples:
 | 12345     |
 | Nishy     |
 
+@Signin
+@Sad
+Scenario: Invalid email and password
+Given I am on the home page
+And I have the following credentials
+| UserName        | Password |
+| fakeusername    | nish     |
+And I enter these credential
+When I click the login button
+Then I should see an error message that contains "Epic sadfac"
+
 #Build before defining steps - Defining steps - Right Click
 #Signin test page is now obsolete
+
+#
