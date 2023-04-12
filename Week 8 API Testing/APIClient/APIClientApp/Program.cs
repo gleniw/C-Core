@@ -2,6 +2,8 @@
 using Newtonsoft;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using static System.Formats.Asn1.AsnWriter;
+using System.Linq;
 
 namespace APIClientApp
 {
@@ -62,25 +64,27 @@ namespace APIClientApp
             {
                 MaxTimeout = -1,
             };
-            var client = new RestClient(options); 
+            var client = new RestClient(options);
             var bulkPostcodeRequest = new RestRequest("/postcodes/", Method.Post);
             bulkPostcodeRequest.AddHeader("Content-Type", "application/json");
 
             //var body = @"{" + "\n" + @" ""postcodes"" : [""OX49 5NU"", ""M32 0JG"", ""NE30 1DP""]" + "\n" + @"}"; //From Postman
             var postcodes = new
             {
-                Postcodes = new string[] { "OX49 5NU", "M32 0JG", "NE30 1DP"} //Postcodes is an anon type with a bunch of String arrays - Read Only
+                Postcodes = new string[] { "OX49 5NU", "M32 0JG", "NE30 1DP" } //Postcodes is an anon type with a bunch of String arrays - Read Only
             };
-            //Nish code to replce Postman
+            //Nish code to replace Postman
 
             //request.AddStringBody(body, DataFormat.Json); //Treat String like a JSON String //From Postman
             //request.AddJsonBody(postcodes);
             bulkPostcodeRequest.AddJsonBody(postcodes);
+
             RestResponse bulkPostcodeResponse = await client.ExecuteAsync(bulkPostcodeRequest); //Quick Actions - Make method Async
             Console.WriteLine(bulkPostcodeResponse.Content);
 
             //Serialise to Json String - taking Postcodes anon object and converting to Json String
 
+            #region
             //NewtonSoft to Serilaise and Query
 
             Console.WriteLine("Formatted JObject");
@@ -96,15 +100,57 @@ namespace APIClientApp
 
             Console.WriteLine("Json Array of Objects");
             //Returning Specific item from Json object list
-            var bulkPostcodeJsonResponce = JObject.Parse(bulkPostcodeResponse.Content);
-            var adminDistrict = bulkPostcodeJsonResponce["result"][1]["result"]["admin_district"];
+            var bulkPostcodeJsonResponse = JObject.Parse(bulkPostcodeResponse.Content);
+            var adminDistrict = bulkPostcodeJsonResponse["result"][1]["result"]["admin_district"];
             Console.WriteLine($"\nAdmin District of 2nd Post code {adminDistrict}");
 
             Console.WriteLine("\nUsing Classes");
 
-            var singlePostcodeObjectResponse = JsonConvert.DeserializeObject<SinglePostcodeResponse> (singlePostcodeResponse.Content);
-            Console.WriteLine(singlePostcodeObjectResponse.Status);
+            var singlePostcodeObjectResponse = JsonConvert.DeserializeObject<SinglePostcodeResponse>(singlePostcodeResponse.Content);
+            Console.WriteLine(singlePostcodeObjectResponse.status);
             Console.WriteLine(singlePostcodeObjectResponse.result.region);
+
+
+            Console.WriteLine("\nBulk Serialisation");
+
+            var bulkPostcodeObject = JsonConvert.DeserializeObject<BulkPostcodeResponse>(bulkPostcodeResponse.Content);
+            Console.WriteLine(bulkPostcodeObject.status);
+            Console.WriteLine(bulkPostcodeObject.result[0].result.region);
+            #endregion
+
+
+            //// Task
+
+            ////Part 2:
+            ////Read the documentation for the postcodes.io Lookup Outward Code GET request.Try it out in Postman
+            ////Modify your program to create a Lookup Outward Code request, and store the response as
+
+            //Console.WriteLine("\n Outward Look up");
+            //var OutCodeOptions = new RestClientOptions("https://api.postcodes.io")
+            //{
+            //    MaxTimeout = -1,
+            //};
+            //var OutClient = new RestClient(OutCodeOptions);
+            //var OutRequest = new RestRequest("/outcodes/PO32", Method.Get);
+            //RestResponse OutResponse = await OutClient.ExecuteAsync(OutRequest);
+            //Console.WriteLine(OutResponse.Content);
+
+
+            //Console.WriteLine("\nStatus");
+            //var singleOutCodeObjectResponse = JsonConvert.DeserializeObject<OutCodeResponce>(OutResponse.Content);
+            //Console.WriteLine(singleOutCodeObjectResponse.status);
+
+
+            ////a Newtonsoft JObject
+            ////one or more deserialised C# objects.
+            ////You will need to map several new classes to represent the response.
+
+            //Console.WriteLine("\nFormatted JObject");
+            //var singleOutCodeJsonResponse = JObject.Parse(OutResponse.Content);
+            //Console.WriteLine("\n Response content as a Jobject");
+            //Console.WriteLine(singleOutCodeJsonResponse);
+
+            ////Different class for each model single / multiple
 
         }
     }
