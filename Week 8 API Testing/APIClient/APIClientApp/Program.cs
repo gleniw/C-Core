@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using Newtonsoft;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace APIClientApp
 {
@@ -99,7 +100,11 @@ namespace APIClientApp
             var adminDistrict = bulkPostcodeJsonResponce["result"][1]["result"]["admin_district"];
             Console.WriteLine($"\nAdmin District of 2nd Post code {adminDistrict}");
 
+            Console.WriteLine("\nUsing Classes");
 
+            var singlePostcodeObjectResponse = JsonConvert.DeserializeObject<SinglePostcodeResponse> (singlePostcodeResponse.Content);
+            Console.WriteLine(singlePostcodeObjectResponse.Status);
+            Console.WriteLine(singlePostcodeObjectResponse.result.region);
 
         }
     }
