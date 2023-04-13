@@ -6,19 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace APIClientApp
+namespace APIClientApp.PostcodeIOService.DataHandling
 {
 
     // Part 1:
     // Update the model so you are able to serialise your BulkPostCode lookup response
 
-    public class BulkPostcodeResponse
+    public class BulkPostcodeResponse : IResponse
     {
         public int status { get; set; }
         public Result[] result { get; set; }
     }
 
-    public class SinglePostcodeResponse
+    public class SinglePostcodeResponse : IResponse
     {
         public int status { get; set; }
         public Result1 result { get; set; }

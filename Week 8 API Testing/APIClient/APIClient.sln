@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIClientApp", "APIClientApp\APIClientApp.csproj", "{EC12FF35-CF19-4337-8B27-FE0427A5E000}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITestApp", "APITestApp\APITestApp.csproj", "{165642C3-D1AD-43E0-BEFC-F9FD42F46AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITestApp", "APITestApp\APITestApp.csproj", "{165642C3-D1AD-43E0-BEFC-F9FD42F46AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTestApp.Specflow", "ApiTestApp.Specflow\ApiTestApp.Specflow.csproj", "{450D282D-7D38-47E4-88D8-2F8E00590D7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{165642C3-D1AD-43E0-BEFC-F9FD42F46AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{165642C3-D1AD-43E0-BEFC-F9FD42F46AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{165642C3-D1AD-43E0-BEFC-F9FD42F46AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{450D282D-7D38-47E4-88D8-2F8E00590D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{450D282D-7D38-47E4-88D8-2F8E00590D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{450D282D-7D38-47E4-88D8-2F8E00590D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{450D282D-7D38-47E4-88D8-2F8E00590D7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

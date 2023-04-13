@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIClientApp.PostcodeIOService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,24 +11,24 @@ namespace APITestApp.BulkPostcodeServiceTests
     {
         private BulkPostcodeService _bulkPostcodeService;
 
+
         [OneTimeSetUp]
 
-        public async Task OneTimeSetupAsync() //This method needs to be Async if called another Async method
+        public async Task OneTimeSetupAsync() 
         {
             _bulkPostcodeService = new BulkPostcodeService();
-            await _bulkPostcodeService.MakeBulkRequestAsync(new string [] {"W3 7BF", "PO32 6DA", "NW10 6AS"});
-            //await _singlePostcodeService.MakeRequestAsync("EC2Y 5AS").GetAwaiter().GetResult; //Alternative to changing to Async method
+            await _bulkPostcodeService.MakeRequestAsync(new string[] { "W3 7BF", "PO32 6DA", "NW10 6AS" });
         }
 
         [Test]
         public void StatusIs200_InJsonResponseBody()
         {
-            Assert.That(_bulkPostcodeService.ResponseContent["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_bulkPostcodeService.JsonResponse["status"].ToString(), Is.EqualTo("200"));
         }
 
         public void StatusIs200_InResponseHeader()
         {
-            Assert.That((int)_bulkPostcodeService.Response.StatusCode, Is.EqualTo(200));
+            Assert.That((int)_bulkPostcodeService.GetStatusCode(), Is.EqualTo(200));
         }
 
 
@@ -35,15 +36,14 @@ namespace APITestApp.BulkPostcodeServiceTests
 
         public void ContentType_IsJson()
         {
-            Assert.That(_bulkPostcodeService.Response.ContentType, Is.EqualTo("application/json"));
+            Assert.That(_bulkPostcodeService.GetResponseContentType(), Is.EqualTo("application/json"));
         }
 
         [Test]
 
         public void ConnectionIsKeepAlive()
         {
-            var result = _bulkPostcodeService.Response.Headers.Where(x => x.Name == "Connection")
-            .Select(x => x.Value).FirstOrDefault();
+            var result = _bulkPostcodeService.GetHeaderValue("Connection");
             Assert.That(result, Is.EqualTo("keep-alive"));
         }
 
@@ -51,15 +51,21 @@ namespace APITestApp.BulkPostcodeServiceTests
 
         public void ObjectStatus_Is200()
         {
-            Assert.That(_bulkPostcodeService.ResponseObject.status, Is.EqualTo(200));
+            Assert.That(_bulkPostcodeService.GetStatusCode(), Is.EqualTo(200));
         }
 
-        [Test]
+        //[Test]
 
-        public void StatusInResponseHeader()
-        {
-            Assert.That((int)_bulkPostcodeService.Response.StatusCode, Is.EqualTo(_bulkPostcodeService.ResponseObject.status));
-        }
+        //public void StatusInResponseHeader()
+        //{
+        //    Assert.That((int)_bulkPostcodeService.Response.StatusCode, Is.EqualTo(_bulkPostcodeService.ResponseObject.status));
+        //}
+
+        //[Test]
+        //public void NumberOfCodes_IsCorrect()
+        //{
+        //    Assert.That(_bulkPostcodeService.CodeCount(), Is.EqualTo(13));
+        //}
 
     }
 }

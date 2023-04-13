@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APITestApp
+namespace APIClientApp.PostcodeIOService.DataHandling
 {
 
-    public class OutcodeResponse
+    public class OutcodeResponse //: IResponse
     {
         public int status { get; set; }
         public OutcodeResult result { get; set; }
