@@ -119,21 +119,14 @@ namespace APIClientApp
             #endregion
 
 
-            //// Task
+            ////// Task
 
             ////Part 2:
             ////Read the documentation for the postcodes.io Lookup Outward Code GET request.Try it out in Postman
             ////Modify your program to create a Lookup Outward Code request, and store the response as
 
             //Console.WriteLine("\n Outward Look up");
-            //var OutCodeOptions = new RestClientOptions("https://api.postcodes.io")
-            //{
-            //    MaxTimeout = -1,
-            //};
-            //var OutClient = new RestClient(OutCodeOptions);
-            //var OutRequest = new RestRequest("/outcodes/PO32", Method.Get);
-            //RestResponse OutResponse = await OutClient.ExecuteAsync(OutRequest);
-            //Console.WriteLine(OutResponse.Content);
+
 
 
             //Console.WriteLine("\nStatus");

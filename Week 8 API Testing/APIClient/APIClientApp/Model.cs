@@ -24,6 +24,7 @@ namespace APIClientApp
         public Result1 result { get; set; }
     }
 
+
     public class Result
     {
         public string query { get; set; }
