@@ -30,7 +30,7 @@ namespace APIClientApp.PostcodeIOService
         public async Task MakeRequestAsync(string [] postcodes)
         {
             BulkPostcodeResponse = await CallManager.MakeRequestAsync(postcodes);
-            JsonResponse = JObject.Parse(BulkPostcodeResponse);
+            
             BulkPostcodeDTO.DeserializeResponse(BulkPostcodeResponse);
 
         }
