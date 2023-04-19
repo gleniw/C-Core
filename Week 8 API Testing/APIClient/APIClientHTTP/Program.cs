@@ -31,7 +31,7 @@ namespace APIClientHTTP
                 };
                 bulkPostcodeRequest.Headers.Add("Accept", "application/json");
 
-                //CReating Array
+                //Creating Array
                 var postcodes = new
                 {
                     Postcodes = new string[] { "OX49 5NU", "M32 0JG", "NE30 1DP" } //Postcodes is an anon type with a bunch of String arrays - Read Only
@@ -63,7 +63,7 @@ namespace APIClientHTTP
 
                     // Serialise to a JObject (need to install Newtonsoft)
                     Console.WriteLine("\nJObject Response");
-                    var singlePostJsonResponse = JObject.Parse(singlePostcodeResponse.Content.ReadAsStringAsync().Result);
+                    var singlePostJsonResponse = JObject.Parse(singlePostcodeResponse.Content.ReadAsStringAsync().Result); //Await
                     Console.WriteLine(singlePostJsonResponse);
 
                     // Few examples of Querying JObject
