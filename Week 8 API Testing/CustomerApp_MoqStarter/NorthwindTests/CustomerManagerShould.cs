@@ -145,6 +145,90 @@ namespace NorthwindTests
 
         }
 
+
+        [Category("Happy")]
+        [Test]
+        public void DeleteSelectedCustomer_WhenDeleteIsCalled_WithValidId()
+        {
+            //Arrange
+            var mockCustomerService = new Mock<ICustomerService>();
+
+            var originalCustomer = new Customer
+            {
+                CustomerId = "MANDA",
+                ContactName = "Nish Mandal",
+                CompanyName = "Sparta Global",
+                City = "Birmingham"
+            };
+
+            mockCustomerService.Setup(cs => cs.GetCustomerById("MANDA")).Returns(originalCustomer);
+
+            _sut = new CustomerManager(mockCustomerService.Object);
+
+            //Act
+            var result = _sut.Delete("MANDA");
+
+            // Assert 
+
+            Assert.That(result);
+
+        }
+
+        [Category("Sad")]
+        [Test]
+        public void NoDeletetionOfCustomer_WhenUpdateIsCalled_WithInvalidId()
+        {
+            //Testing if Update Method is called
+            //Arrange
+            var mockCustomerService = new Mock<ICustomerService>();
+
+            var originalCustomer = new Customer
+            {
+                CustomerId = "MANDA",
+                ContactName = "Nish Mandal",
+                CompanyName = "Sparta Global",
+                City = "Birmingham"
+            };
+
+            mockCustomerService.Setup(cs => cs.GetCustomerById("MANDA")).Returns(originalCustomer);
+
+            _sut = new CustomerManager(mockCustomerService.Object);
+
+            //Act
+            var result = _sut.Delete("INVALID");
+
+            // Assert 
+
+            Assert.That(result, Is.False);
+
+        }
+
+        [Category("Sad")]
+        [Test]
+
+        public void ReturnFalse_WhenDeletionIsCalled_WithInvalidId()
+        {
+
+            //Arrange
+            var mockCustomerService = new Mock<ICustomerService>();
+
+            var originalCustomer = new Customer
+            {
+                CustomerId = "MANDA"
+            };
+
+            mockCustomerService.Setup(cs => cs.GetCustomerById("MANDA")).Returns((Customer)null);
+
+            _sut = new CustomerManager(mockCustomerService.Object);
+
+            //Act
+            var result = _sut.Delete("MANDA");
+
+            // Assert 
+            Assert.That(result, Is.False);
+        }
+
+
         #endregion
 
         #region Throw Exception - MOQ
@@ -193,6 +277,31 @@ namespace NorthwindTests
             //Assert
 
             mockCustomerService.Verify(cs => cs.SaveCustomerChanges(), Times.Once); //Times.Exactly(1); Times.Between(0,3), Time.AtLeastOnce
+
+        }
+
+        [Test]
+
+        public void RemoveCustomer_WhenDeleteIsCalledWithValidID()
+        {
+            //Arrange
+            var mockCustomerService = new Mock<ICustomerService>();
+            var originalCustomer = new Customer
+            {
+                CustomerId = "MANDA",
+                ContactName = "Nish Mandal",
+                CompanyName = "Sparta Global",
+                City = "Birmingham"
+            };
+
+            mockCustomerService.Setup(cs => cs.GetCustomerById("MANDA")).Returns(originalCustomer);
+            _sut = new CustomerManager(mockCustomerService.Object);
+
+            //Act
+            var result = _sut.Delete("MANDA");
+            //Assert
+
+            mockCustomerService.Verify(cs => cs.RemoveCustomer(originalCustomer), Times.AtLeastOnce);
 
         }
 
